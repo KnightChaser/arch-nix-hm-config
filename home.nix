@@ -60,11 +60,11 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      ll      = "ls -al";
-      c       = "clear";
+      ll = "ls -al";
+      c = "clear";
 
       # For python3 development environment
-      govenv  = "source ./.venv/bin/activate";
+      govenv = "source ./.venv/bin/activate";
       byevenv = "deactivate";
     };
     initExtra = ''
@@ -93,15 +93,21 @@
     vimAlias = true;
   };
 
-
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  programs.starship = {
+    enable = true;
+    settings = {
+      # custom settings here
+      add_newline = false;
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+    };
   };
 
-  home.file = { 
-    ".config/nvim".source = ./dotfiles/nvim;
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
+
+  home.file = { ".config/nvim".source = ./dotfiles/nvim; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
