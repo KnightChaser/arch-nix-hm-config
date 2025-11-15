@@ -19,7 +19,6 @@
   # environment.
   home.packages = with pkgs; [
     git
-    neovim
     curl
     wget
     gcc
