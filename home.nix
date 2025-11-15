@@ -28,6 +28,7 @@
     fd
     neofetch
     less
+    tree
   ];
 
   programs.bash = {
@@ -54,13 +55,21 @@
     };
   };
 
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
 
 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  home.file = { };
+  home.file = { 
+    ".config/nvim".source = ./dotfiles/nvim;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
