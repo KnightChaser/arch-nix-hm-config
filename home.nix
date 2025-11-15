@@ -60,7 +60,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      ll      = "ls -al .";
+      ll      = "ls -al";
       c       = "clear";
 
       # For python3 development environment
