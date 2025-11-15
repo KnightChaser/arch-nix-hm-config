@@ -67,6 +67,12 @@
       govenv  = "source ./.venv/bin/activate";
       byevenv = "deactivate";
     };
+    initExtra = ''
+      # Only run if fastfetch exists and we're in an interactive terminal
+      if [ -t 1 ] && command -v fastfetch >/dev/null 2>&1; then
+        fastfetch
+      fi
+    '';
   };
 
   programs.git = {
