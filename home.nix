@@ -1,114 +1,17 @@
-{ config, pkgs, ... }:
+# home.nix
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "sayo";
   home.homeDirectory = "/home/sayo";
+  home.stateVersion = "25.05";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = with pkgs; [
-    git
-    curl
-    wget
-    htop
-    ripgrep
-    fd
-    fastfetch
-    less
-    tree
-    unzip
-
-    ##############################
-    # Programming tools
-    ##############################
-
-    # C/C++
-    gcc
-    gdb
-    cmake
-    pkg-config
-    clang-tools
-
-    # Python
-    python3
-    python3Packages.virtualenv
-
-    # Go
-    go
-    gopls
-    delve
-
-    # Rust
-    rustup
-
-    # JavaScript
-    nodejs_22
-    pnpm
-  ];
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -al";
-      c = "clear";
-
-      # For python3 development environment
-      govenv = "source ./.venv/bin/activate";
-      byevenv = "deactivate";
-    };
-    initExtra = ''
-      # Only run if fastfetch exists and we're in an interactive terminal
-      if [ -t 1 ] && command -v fastfetch >/dev/null 2>&1; then
-        fastfetch
-      fi
-    '';
-  };
-
-  programs.git = {
-    enable = true;
-
-    settings = {
-      user.name = "knightchaser";
-      user.email = "agerio100@naver.com";
-      init.defaultBranch = "main";
-      core.editor = "nvim";
-      pull.rebase = "false";
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      # custom settings here
-      add_newline = false;
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
-      };
-    };
-  };
-
-  home.sessionVariables = { EDITOR = "nvim"; };
-
-  home.file = { ".config/nvim".source = ./dotfiles/nvim; };
-
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  imports = [
+    ./modules/shell.nix
+    ./modules/editor.nix
+    ./modules/devtools.nix
+    ./modules/prompt.nix
+  ];
 }
+
