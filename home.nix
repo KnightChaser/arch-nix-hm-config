@@ -24,7 +24,7 @@
     htop
     ripgrep
     fd
-    neofetch
+    fastfetch
     less
     tree
     unzip
