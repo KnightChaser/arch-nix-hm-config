@@ -21,13 +21,40 @@
     git
     curl
     wget
-    gcc
     htop
     ripgrep
     fd
     neofetch
     less
     tree
+    unzip
+
+    ##############################
+    # Programming tools
+    ##############################
+
+    # C/C++
+    gcc
+    gdb
+    cmake
+    pkg-config
+    clang-tools
+
+    # Python
+    python3
+    python3Packages.virtualenv
+
+    # Go
+    go
+    gopls
+    delve
+
+    # Rust
+    rustup
+
+    # JavaScript
+    nodejs_22
+    pnpm
   ];
 
   programs.bash = {
