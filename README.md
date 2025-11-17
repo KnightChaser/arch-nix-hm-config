@@ -44,8 +44,6 @@ index 594365a..baad67c 100644
 
 ```
 3. Run `home-manager switch` like below.
-   I set `home.shellAliases.home-manager = "home-manager -b hm.bak";` alias in `moduels/shell.nix` so you can type
-   as follows to refresh the environment
 ```
-home-manager --flake .#(Your new Linux username)
+home-manager switch --flake .#(username)
 ```
