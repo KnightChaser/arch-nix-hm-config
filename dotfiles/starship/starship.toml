@@ -64,7 +64,8 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 [python]
 symbol = ""
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol ($version)($virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
+pyenv_version_name = true
 
 [c]
 symbol = ""
