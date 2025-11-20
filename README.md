@@ -7,6 +7,13 @@
 
 ## Setup (from Arch Linux to **Fedora**)
 
+```sh
+cp -r ~/.config/home-manager ~/.config/home-manager-backup  # Backup existing Home Manager config
+git clone git@github.com:KnightChaser/arch-nix-hm-config.git ~/.config/home-manager
+cd ~/.config/home-manager
+# Follow the steps below to set up Home Manager on Fedora
+```
+
 ### 1. Install Nix and Home Manager
 
 1. Install [Nix](https://nixos.org/download/) and [Home Manager](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone).
